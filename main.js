@@ -59,10 +59,17 @@ function fetchArticles() {
         console.log(res.id, res.published_date, res.title, res.url)
         console.log(res['media'][0]['media-metadata'][0].url)
         html += `<li class="card" id="card-${res.id}}">
-                  <div class="title">${res.title}</div>
-                  <div class="date">${res.published_date}</div>
-                  <div class="new_image"><img src="${res['media'][0]['media-metadata'][0].url}" alt="image"></div>
-                  <div class="url">${res.url}</div>
+                  <a href="${res.url}">
+                    <div class="card-contents">
+                      <div class="card-contents__left">
+                        <div class="title">${res.title}</div>
+                        <div class="date">${res.published_date}</div>
+                      </div>
+                      <div class="card-contents__right">
+                        <div class="new_image"><img src="${res['media'][0]['media-metadata'][0].url}" alt="image"></div>
+                      </div>
+                    </div>
+                  </a>
                 </li>`
         
         news.innerHTML = html
